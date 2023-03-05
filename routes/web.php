@@ -21,13 +21,17 @@ Route::get('/', function () {
     return view('beranda.index');
 });
 
-Route::get('/login', function () {
-    return view('user.login');
-})->name('login');
+Route::get('/register', 'UserController@index')->name('register');
+Route::post('/getkota','IndoRegionController@getkota')->name('getkota');
+Route::post('/getkecamatan','IndoRegionController@getkecamatan')->name('getkecamatan');
+Route::post('/getdesa','IndoRegionController@getdesa')->name('getdesa');
+// Route::get('/login', function () {
+//     return view('user.login');
+// })->name('login');
 
 
-Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
-Route::get('/logout','LoginController@logout')->name('logout')->middleware('auth');
+// Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
+// Route::get('/logout','LoginController@logout')->name('logout')->middleware('auth');
 
 
 Route::get('/beranda', 'BerandaController@index');
